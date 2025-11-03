@@ -66,6 +66,7 @@ int main() {
                 break;
             }
             case 4: {
+                display_trip(trip);
                 vector<string> nameVec;
                 for (list<Goat>::const_iterator it = trip.begin(); it != trip.end(); it++){
                     nameVec.push_back(it->get_name());
@@ -85,9 +86,22 @@ int main() {
                         }
                         }
                     }
-                }
+                
                 break;
-            
+                }
+                case 5: {
+                    vector<string> nameSort;
+                    for (list<Goat>::const_iterator it = trip.begin(); it != trip.end(), it++){
+                        nameSort.push_back(it->get_name());
+                        sort(nameSort.begin(), nameSort.end());
+                        cout << "Goats sorted by name: \n";
+                        for (int i = 0; i < nameSort.size(); i++){
+                            cout << nameSort[i] << "\n";
+                        }
+                
+                    }
+                    break;
+                }
 
             default:
                 cout << "Invalid selection.\n";
