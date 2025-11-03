@@ -122,7 +122,16 @@ int main() {
                     cout << "Goats under age 10 removed: \n";
                     display_trip(trip);
 
-
+                }
+                case 8: {
+                int count = 0;
+                for (auto it = trip.begin(); it != trip.end(); it++) {
+                    if(it->get_age() > 10){
+                        count++;
+                    }
+                }
+                cout << "Number of goats above age 10: " << count << endl;
+                break;
                 }
 
             default:
