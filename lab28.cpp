@@ -4,7 +4,8 @@
 #include <list>
 #include <algorithm>
 #include <vector>
-#include <ctime>
+#include <numeric>
+#include <string>
 #include "Goat.h"
 using namespace std;
 
@@ -62,14 +63,23 @@ int main() {
                 display_trip(trip);
                 break;
             case 4:
-                vector<string> name;
-                for (list<Goat>::const_iterator it = trip.begin(); it != trip.end(), it++){
-                    name.push_back(it->get_name());
+                vector<string> nameVec;
+                for (list<Goat>::const_iterator it = trip.begin(); it != trip.end(); it++){
+                    nameVec.push_back(it->get_name());
                 }
                 string f;
                 cout << "Enter goat name to find: ";
-                cin >> f;
-                vector<string>::iterator n = find(name.begin(); name.end(), f);
+                getline(cin, f);
+                auto i = find(nameVec.begin(), nameVec.end(), f);
+                if (i != nameVec.end()) {
+                    for (list<Goat>::const_iterator it = trip.begin(); it != trip.end()); it++){
+                        if (it->get_name() == f){
+                            cout << "Found " << it->get_name() << " (" << it->get_age() << ", " << it->get_color() << ")\n";
+                            break;
+                        }
+                    }
+                }
+                break;
 
 
             default:
@@ -97,7 +107,7 @@ int main_menu() {
     cout << "Choice --> ";
     int choice;
     cin >> choice;
-    while (choice < 1 || choice > 4) {
+    while (choice < 1 || choice > 9) {
         cout << "Invalid, again --> ";
         cin >> choice;
     }
