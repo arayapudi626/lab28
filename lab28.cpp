@@ -3,6 +3,8 @@
 #include <iomanip>
 #include <list>
 #include <algorithm>
+#include <vector>
+#include <ctime>
 #include "Goat.h"
 using namespace std;
 
@@ -60,10 +62,16 @@ int main() {
                 display_trip(trip);
                 break;
             case 4:
-                string find;
+                vector<string> name;
+                for (list<Goat>::const_iterator it = trip.begin(); it != trip.end(), it++){
+                    name.push_back(it->get_name());
+                }
+                string f;
                 cout << "Enter goat name to find: ";
-                cin >> find;
-                
+                cin >> f;
+                vector<string>::iterator n = find(name.begin(); name.end(), f);
+
+
             default:
                 cout << "Invalid selection.\n";
                 break;
