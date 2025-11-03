@@ -2,13 +2,14 @@
 #include <fstream>
 #include <iomanip>
 #include <list>
+#include <algorithm>
 #include "Goat.h"
 using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25;
 
-int select_goat(list<Goat> trip);
-void delete_goat(list<Goat> &trip);
+int select_goat(list<Goat> trip); 
+void delete_goat(list<Goat> &trip); 
 void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
 int main_menu();
@@ -44,7 +45,7 @@ int main() {
     
     // Goat Manager 3001 Engine
     int sel = main_menu();
-    while (sel != 4) {
+    while (sel != 9) {
         switch (sel) {
             case 1:
                 cout << "Adding a goat.\n";
@@ -58,6 +59,11 @@ int main() {
                 cout << "Displaying goat data.\n";
                 display_trip(trip);
                 break;
+            case 4:
+                string find;
+                cout << "Enter goat name to find: ";
+                cin >> find;
+                
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -70,11 +76,16 @@ int main() {
 }
 
 int main_menu() {
-    cout << "*** GOAT MANAGER 3001 ***\n";
+    cout << "*** ALGORITHMS MENU ***\n";
     cout << "[1] Add a goat\n";
     cout << "[2] Delete a goat\n";
     cout << "[3] List goats\n";
-    cout << "[4] Quit\n";
+    cout << "[4] Find a goat\n";
+    cout << "[5] Sort goats\n";
+    cout << "[6] Average age of goats\n";
+    cout << "[7] Remove goats under age 10\n";
+    cout << "[8] Count number of goats above 10\n";
+    cout << "[9] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
