@@ -121,7 +121,7 @@ int main() {
                     }
                     cout << "Goats under age 10 removed: \n";
                     display_trip(trip);
-
+                    break;
                 }
                 case 8: {
                 int count = 0;
