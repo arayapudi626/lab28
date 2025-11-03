@@ -50,37 +50,44 @@ int main() {
     int sel = main_menu();
     while (sel != 9) {
         switch (sel) {
-            case 1:
+            case 1: {
                 cout << "Adding a goat.\n";
                 add_goat(trip, names, colors);
                 break;
-            case 2:    
+            }
+            case 2:   { 
                 cout << "Removing a goat.\n";
                 delete_goat(trip);
                 break;
-            case 3:    
+            }
+            case 3:   {  
                 cout << "Displaying goat data.\n";
                 display_trip(trip);
                 break;
-            case 4:
+            }
+            case 4: {
                 vector<string> nameVec;
                 for (list<Goat>::const_iterator it = trip.begin(); it != trip.end(); it++){
                     nameVec.push_back(it->get_name());
                 }
                 string f;
                 cout << "Enter goat name to find: ";
-                getline(cin, f);
+                cin >> f;
                 auto i = find(nameVec.begin(), nameVec.end(), f);
-                if (i != nameVec.end()) {
-                    for (list<Goat>::const_iterator it = trip.begin(); it != trip.end()); it++){
+                if (i == nameVec.end()) {
+                    cout << "Goat not found \n";
+                }
+                else{
+                    for (list<Goat>::const_iterator it = trip.begin(); it != trip.end(); it++){
                         if (it->get_name() == f){
                             cout << "Found " << it->get_name() << " (" << it->get_age() << ", " << it->get_color() << ")\n";
                             break;
                         }
+                        }
                     }
                 }
                 break;
-
+            
 
             default:
                 cout << "Invalid selection.\n";
