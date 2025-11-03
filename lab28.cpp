@@ -100,6 +100,20 @@ int main() {
                         cout << nameSort[i] << endl;
                     }
                     break;
+            
+                }
+                case 6: {
+                    vector<int> ages;
+                    for (const Goat&g: trip){
+                        ages.push_back(g.get_age());
+                    }
+                    int total = accumulate(ages.begin(), ages.end(), 0);
+                    double avg = static_cast<double>(total) / ages.size();
+                    cout << "Average age: " << avg << endl;
+                    break;
+                }
+                case 7: {
+                    
                 }
 
             default:
