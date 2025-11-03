@@ -91,7 +91,7 @@ int main() {
                 }
                 case 5: {
                     vector<string> nameSort;
-                    for (list<Goat>::const_iterator it = trip.begin(); it != trip.end(), it++){
+                    for (list<Goat>::const_iterator it = trip.begin(); it != trip.end(); it++){
                         nameSort.push_back(it->get_name());
                         sort(nameSort.begin(), nameSort.end());
                         cout << "Goats sorted by name: \n";
