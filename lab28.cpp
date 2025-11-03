@@ -113,7 +113,16 @@ int main() {
                     break;
                 }
                 case 7: {
-                    
+                    for (auto it = trip.begin(); it != trip.end();){
+                        if (it->get_age() < 10){
+                            it = trip.erase(it);
+                        }
+                        else it++;
+                    }
+                    cout << "Goats under age 10 removed: \n";
+                    display_trip(trip);
+
+
                 }
 
             default:
